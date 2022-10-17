@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MVVM1"
         xmlns:vm="clr-namespace:MVVM1.ViewModels"
         mc:Ignorable="d"
-        Title="АОВЛ" Height="450" Width="800">
+        Title="Practice" Height="450" Width="800">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -19,9 +19,9 @@
             <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <TextBlock Text="Заказы" FontSize="12" Margin="2,5"/>
                 <Button Content="Обновить" FontSize="12" Command="{Binding UpdateButton}"/>
-                <xctk:DateTimePicker MinWidth="135" FontSize="7.5"/>
+                <xctk:DateTimePicker x:Name="DateBegin" MinWidth="135" FontSize="7.5" Text="{Binding DateBegin}"/>
                 <TextBlock Text="-" FontSize="20" Margin="1,0"/>
-                <xctk:DateTimePicker MinWidth="135" FontSize="7.5"/>
+                <xctk:DateTimePicker x:Name="DateEnd" MinWidth="135" FontSize="7.5" Text="{Binding DateEnd}"/>
                 <TextBlock Text="Получаемые краты/слябы" FontSize="12" Margin="15,5"/>
             </StackPanel>
         </Viewbox>
@@ -31,8 +31,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <DataGrid Grid.Column="0" ItemsSource="{Binding DataSlab, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGrid Grid.Column="1"/>
+                <DataGrid x:Name="DataGridSlab" Grid.Column="0" ItemsSource="{Binding DataSlab, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGrid x:Name="DataGridCrat" Grid.Column="1" ItemsSource="{Binding DataCrat, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </Border>
     </Grid>

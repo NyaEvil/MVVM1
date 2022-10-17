@@ -29,6 +29,5 @@ namespace MVVM1
             InitializeComponent();
         }
 
-
     }
 }
